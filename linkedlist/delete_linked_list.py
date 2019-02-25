@@ -21,15 +21,31 @@ class LinkedList:
         temp = self.head
         self.head = temp.next
         temp = None
+    def delete_last(self):
+        if(self.head is None):
+            return None
+        if(self.head.next is None):
+            self.head = None
+            return None
+        second_last = self.head
+        while(second_last.next.next is not None):
+            second_last = second_last.next
+        last = second_last.next
+        second_last.next = None
+        last = None
+        return self.head
 if __name__=='__main__':
     llist = LinkedList()
     llist.push(5)
     llist.push(4)
     llist.push(3)
     llist.push(2)
+    llist.push(1)
+    #llist.print_list()
+    #llist.delete_front()
     llist.print_list()
-    llist.delete_front()
+    llist.delete_last()
     llist.print_list()
-    
-    
+    llist.delete_last()
+    llist.print_list()
 
