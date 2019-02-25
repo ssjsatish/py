@@ -1,5 +1,6 @@
 '''
 given a key and a linked list. Check if the key is present in the list or not
+Return True if the key is found and False if not found
 '''
 class Node:
     def __init__(self, new_data):
