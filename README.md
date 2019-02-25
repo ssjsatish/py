@@ -1,1 +1,1 @@
-This is python data structure and algorithm practice.
+Hackerrank problem solution
