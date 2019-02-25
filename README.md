@@ -1,1 +1,1 @@
-data structures and algorithms in python programming for $200K
+Data structures and algorithms coding in python for $200K
