@@ -5,17 +5,20 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        
     # add a node to the front of the list
     def push(self,data):
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
+
     def print_list(self):
         temp = self.head
         while(temp):
             print(temp.data,' -> ', end=' ')
             temp = temp.next
         print('None')
+
     # delete the front node
     def delete_front(self):
         temp = self.head
