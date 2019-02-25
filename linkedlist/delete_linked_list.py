@@ -34,6 +34,19 @@ class LinkedList:
         second_last.next = None
         last = None
         return self.head
+    def remove_node_from_position(self,position):
+        if(self.head is None):
+            return None
+        temp = self.head
+        if position == 0:
+            self.head = temp.next
+            temp =None
+            return self.head
+        for i in range(position - 1):
+            temp = temp.next
+            if temp is None:
+                break
+            
 if __name__=='__main__':
     llist = LinkedList()
     llist.push(5)
