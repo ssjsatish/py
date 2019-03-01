@@ -3,3 +3,5 @@ class Node:
         self.right = None
         self.left = None
         self.data = new_data
+    def depth(self):
+        return 0
