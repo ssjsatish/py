@@ -29,6 +29,39 @@ def printLevel(root, level):
     elif level >= 1:
         printLevel(root.left, level-1)
         printLevel(root.right, level-1 )
+def printLevelOrderQueue(root):
+    if root is None:
+        return
+    q = []
+    q.append(root)
+    while(len(q) > 0):
+        print(q[0].data, end = ' ')
+        node = q.pop(0)
+        if node.left is not None:
+            q.append(node.left)
+        if node.right is not None:
+            q.append(node.right)
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.data, end=' ')
+        inorder(root.right)
+    
+
+def preorder(root):
+    if root:
+        print(root.data, end=' ')
+        preorder(root.left)
+        preorder(root.right)
+    
+
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.data, end = ' ')
+    
+
 
 #TreeNode node = TreeNode()
 root = TreeNode(1)
@@ -39,3 +72,11 @@ root.left.right = TreeNode(5)
 root.right.left = TreeNode(6)
 root.right.right = TreeNode(7)
 printLevelOrder(root)
+printLevelOrderQueue(root)
+print()
+inorder(root)
+print()
+preorder(root)
+print()
+postorder(root)
+print()
