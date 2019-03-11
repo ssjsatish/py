@@ -7,7 +7,9 @@ def height(root):
     if root is None:
         return 0
     return 1 + max(height(root.left), height(root.right))
-
+'''
+This is to find out the number of nodes in the tree from 2 most end nodes
+'''
 def diameter(root):
     if root is None:
         return 0
