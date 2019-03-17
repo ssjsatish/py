@@ -7,10 +7,19 @@ def getMaxWidth(root):
     maxWidth = 0
     h = height(root)
     for i in range(1, h+1):
-        width = getMaxWidth(root, i)
+        width = getWidth(root,i)
         if width > maxWidth:
             maxWidth = width
     return maxWidth
+
+
+def getWidth(root, level):
+    if root is None:
+        return 0
+    if level== 1:
+        return 1
+    elif( level > 1):
+        return (getWidth(root.left, level-1)+(getWidth(root.right, level-1)))
 
 def height(root):
     if root is None:
