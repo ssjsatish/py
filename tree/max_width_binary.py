@@ -12,7 +12,7 @@ def getMaxWidth(root):
     maxWidth = 0
     q.append(root)
     while(len(q)>0):
-        count = len(q)
+        count = len(q)        
         maxWidth = max(count,maxWidth)
         while(count is not 0):
             count = count - 1
