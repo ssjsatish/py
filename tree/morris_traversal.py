@@ -1,3 +1,8 @@
+'''
+Morris traversal is based on Threaded Binary Tree
+First created links to Inorder successor and then print data using these links
+finally rever the changes to restore original tree
+'''
 class TreeNode:
     def __init__(self, new_data):
         self.left = None
@@ -9,6 +14,18 @@ def morris_traversal(root):
     while current is not None:
         if current.left is None:
             print(current.data, end=' ')
+            current = current.right
+        else:
+            pre = current.left
+            while(pre.right is not None and pre.right!=current):
+                pre = pre.right
+            if pre.right is None:
+                pre.right = current
+                current = current.left
+            else:
+                pre.right = None
+                print(current.data, end=' ')
+                current = current.data
             
 
         
