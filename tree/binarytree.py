@@ -5,7 +5,7 @@ class treeNode:
         self.data = new_data
     
     def inorder(temp):
-        
-
-
-    
+        if temp:
+            inorder(temp.left):
+            print(temp.data, end = ' ')
+            inorder(temp.right)
