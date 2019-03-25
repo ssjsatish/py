@@ -7,4 +7,4 @@ class TreeNode:
 def inorder_successor(root, node):
     if node.right is not None:
         return minValue(node.right)
-    
+    p = node.parent()

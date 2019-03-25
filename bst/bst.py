@@ -4,6 +4,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+#insert the nodes in the tree, this insertion is not self balanced
 def insert(root, node):
     if root is None:
         root = node
@@ -19,19 +20,30 @@ def insert(root, node):
             else:
                 insert(root.left, node)
 
+#Inorder traversal of the tree i.e. Left, Node then Right(L N R)
 def inorder(root):
     if root:
         inorder(root.left)
         print(root.data, end=' ')
         inorder(root.right)
+
+# get the leftmost node's value which is smallest
+def minVal(root):
+    current = root
+    while(current.left is not None):
+        current = current.left
+    return current.data
     
 
+# method to search any element in the tree
 def search(root, key):
     if root is None or root.data == key:
         return root
     if root.data < key:
         return search(root.left, key)
     return search(root.right,key)
+
+# print the node's value from left to right per level from 0 to height of the tree
 def printLevelOrder(root):
     if root is None:
         return
@@ -44,6 +56,20 @@ def printLevelOrder(root):
             queue.append(node.left)
         if node.right is not None:
             queue.append(node.right)
+def deleteNode(root, key):
+    if root is None:
+        return root
+    # if the node to be deleted lies in the left subtree of the original tree
+    if key < root.data:
+        root.left = deleteNode(root.left, key)
+    # if the node to be deleted lies in the right subtree of the original tree
+    elif(key > root.data):
+        root.right = deleteNode(root.right, key)
+    # if the node to be deleted is the root 
+    else:
+        # node with only one child or no child
+
+
 
 
 root = TreeNode(9)
