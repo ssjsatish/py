@@ -68,6 +68,21 @@ def deleteNode(root, key):
     # if the node to be deleted is the root 
     else:
         # node with only one child or no child
+        if root.left is None:
+            temp = root.right
+            root  = None
+            return temp
+        elif root.right is None:
+            temp = root.left
+            root = None
+            return temp
+        # Node with 2 children: Get inorder successor i.e. smallest in the right subtree
+        temp = minVal(root.right)
+        root.data = temp.data
+        # delete the inorder successor
+        root.right = deleteNode(root.right , temp.data)
+    return root
+            
 
 
 
