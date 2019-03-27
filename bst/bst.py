@@ -68,6 +68,18 @@ def deleteNode(root, key):
     # if the node to be deleted is the root 
     else:
         # node with only one child or no child
+        if root.left is None:
+            temp = root.right
+            root = None
+            return temp
+        elif root.right is None:
+            temp = root.left
+            root = None
+            return temp
+        temp = minVal(root.right)
+        root.data = temp.data
+        root.right = deleteNode(root.right, temp.data)
+    return root
 
 
 
