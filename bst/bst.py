@@ -1,6 +1,6 @@
 class TreeNode:
-    def __init__(self, new_data):
-        self.data = new_data
+    def __init__(self, key):
+        self.key = key
         self.left = None
         self.right = None
 
@@ -9,7 +9,7 @@ def insert(root, node):
     if root is None:
         root = node
     else:
-        if root.data < node.data:
+        if root.key < node.key:
             if root.right is None:
                 root.right = node
             else:
@@ -24,7 +24,7 @@ def insert(root, node):
 def inorder(root):
     if root:
         inorder(root.left)
-        print(root.data, end=' ')
+        print(root.key, end=' ')
         inorder(root.right)
 
 # get the leftmost node's value which is smallest
@@ -32,14 +32,14 @@ def minVal(root):
     current = root
     while(current.left is not None):
         current = current.left
-    return current.data
+    return current.key
     
 
 # method to search any element in the tree
 def search(root, key):
-    if root is None or root.data == key:
+    if root is None or root.key == key:
         return root
-    if root.data < key:
+    if root.key < key:
         return search(root.left, key)
     return search(root.right,key)
 
@@ -50,20 +50,21 @@ def printLevelOrder(root):
     queue = []
     queue.append(root)
     while(len(queue)>0):
-        print(queue[0].data, end=' ')
+        print(queue[0].key, end=' ')
         node = queue.pop(0)
         if node.left is not None:
             queue.append(node.left)
         if node.right is not None:
             queue.append(node.right)
+# given a root and a key; this function deletes the key from the tree and returns the new root
 def deleteNode(root, key):
     if root is None:
         return root
     # if the node to be deleted lies in the left subtree of the original tree
-    if key < root.data:
+    if key < root.key:
         root.left = deleteNode(root.left, key)
     # if the node to be deleted lies in the right subtree of the original tree
-    elif(key > root.data):
+    elif(key > root.key):
         root.right = deleteNode(root.right, key)
     # if the node to be deleted is the root 
     else:
@@ -78,9 +79,9 @@ def deleteNode(root, key):
             return temp
         # Node with 2 children: Get inorder successor i.e. smallest in the right subtree
         temp = minVal(root.right)
-        root.data = temp.data
+        root.key = temp.key
         # delete the inorder successor
-        root.right = deleteNode(root.right , temp.data)
+        root.right = deleteNode(root.right , temp.key)
     return root
             
 
@@ -106,5 +107,8 @@ print('Inorder traversal: ', end='')
 inorder(root)
 print()
 print('Level order traversal: ', end='')
+printLevelOrder(root)
+print()
+deleteNode(root,5)
 printLevelOrder(root)
 print()

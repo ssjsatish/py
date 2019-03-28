@@ -4,7 +4,11 @@ class TreeNode:
         self.left  = None
         self.data = new_data
 
+def minValue(root):
+    return None
+
 def inorder_successor(root, node):
     if node.right is not None:
         return minValue(node.right)
     p = node.parent()
+    
