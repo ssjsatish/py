@@ -19,6 +19,7 @@ def insert(root, node):
                 root.left = node
             else:
                 insert(root.left, node)
+    return root
 
 #Inorder traversal of the tree i.e. Left, Node then Right(L N R)
 def inorder(root):
