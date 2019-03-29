@@ -96,10 +96,13 @@ def deleteNode(root, key):
 # Driver program to test above functions 
 """ Let us create following BST 
 			50 
-		/	 \ 
-		30	 70 
-		/ \ / \ 
-	20 40 60 80 """
+		   /  \
+		  /    \
+		30      70 
+	    / \    /  \
+	   20 40  60  80
+	   
+	    """
 
 root = None
 root = insert(root, 50) 
