@@ -56,15 +56,16 @@ def printLevelOrder(root):
             queue.append(node.left)
         if node.right is not None:
             queue.append(node.right)
-def deleteNode(root, key):
+
+def deleteNode(root, val):
     if root is None:
         return root
     # if the node to be deleted lies in the left subtree of the original tree
-    if key < root.data:
-        root.left = deleteNode(root.left, key)
+    if val < root.data:
+        root.left = deleteNode(root.left, val)
     # if the node to be deleted lies in the right subtree of the original tree
-    elif(key > root.data):
-        root.right = deleteNode(root.right, key)
+    elif(val > root.data):
+        root.right = deleteNode(root.right, val)
     # if the node to be deleted is the root 
     else:
         # node with only one child or no child
@@ -80,9 +81,6 @@ def deleteNode(root, key):
         root.data = temp.data
         root.right = deleteNode(root.right, temp.data)
     return root
-
-
-
 
 root = TreeNode(9)
 insert(root, TreeNode(5))
@@ -105,3 +103,5 @@ print()
 print('Level order traversal: ', end='')
 printLevelOrder(root)
 print()
+root = deleteNode(root, 15)
+inorder(root)
