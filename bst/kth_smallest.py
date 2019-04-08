@@ -18,100 +18,49 @@ def insert(root, node):
             else:
                 insert(root.left, node)
     return root
-
-def minVal(root):
-    current = root
-    while(current.left is not None):
-        current = current.left
-    return current.data
-
-def maxVal(root):
-    current = root
-    while(current.right is not None):
-        current = current.right
-    return current.data
-
-def isBST(root):
-    if root is None:
-        return True
-    if root.left is not None and maxVal(root.left) > root.left.data:
-        return False
-    if root.right is not None and minVal(root.right) < root.right.data:
-        return False
-    if(not isBST(root.left) or not isBST(root.right)):
-        return False
-    return True
-
-def inorder(root):
-    if root:
-        inorder(root.left)
-        print(root.data, end=' ')
-        inorder(root.right)
-
-def printLevelOrder(root):
-    if root is None:
-        return
-    queue = []
-    queue.append(root)
-    while(len(queue)>0):
-        print(queue[0].data, end=' ')
-        node = queue.pop(0)
-        if node.left is not None:
-            queue.append(node.left)
-        if node.right is not None:
-            queue.append(node.right)
-
-def isBST_inorder(root):
-    a = []
-    if root:
-        isBST_inorder(root.left)
-        a.append(root.data)
-        isBST_inorder(root.right)
-    print(a, end=' ')
-    return a
-
-def is_sorted(a):
-    flag = 0
-    if(all(a[i] <= a[i + 1] for i in range(len(a)-1))):
-        flag = 1
-    return True if flag==1 else False
+def kth_smallest(root, k):
+    s, cur, rank = [], root, 0
+    while s or cur:
+        if cur:
+            s.append(cur)
+            cur = cur.left
+        else:
+            cur = s.pop()
+            rank = rank + 1
+            if rank == k:
+                return cur.data
+            cur = cur.right
+    return float("-inf")
 
 root = TreeNode(9)
-root = insert(root, TreeNode(5))
-root = insert(root, TreeNode(7))
-root = insert(root, TreeNode(6))
-root = insert(root, TreeNode(8))
-root = insert(root, TreeNode(3))
-root = insert(root, TreeNode(4))
-root = insert(root, TreeNode(2))
-root = insert(root, TreeNode(13))
-root = insert(root, TreeNode(11))
-root = insert(root, TreeNode(10))
-root = insert(root, TreeNode(12))
-root = insert(root, TreeNode(15))
-root = insert(root, TreeNode(14))
-root = insert(root, TreeNode(16))
-k = 3
-print('Inorder traversal: ', end='')
-a  = isBST_inorder(root)
-print(a)
-'''
-print('Level order traversal: ', end=' ')
-printLevelOrder(root)
-print()
-# following if else statement is wrong.
-if isBST(root):
-    print('This is BST')
-else:
-    print('Its not a BST')
-# correct code using sort checks
-if is_sorted(a):
-    print('BST')
-else:
-    print('NOT BST')
-# correct code using sorted method available in Python
-if a == sorted(a):
-    print('BST')
-else:
-    print('NOT BST')
-'''
+insert(root, TreeNode(5))
+insert(root, TreeNode(7))
+insert(root, TreeNode(6))
+insert(root, TreeNode(8))
+insert(root, TreeNode(3))
+insert(root, TreeNode(4))
+insert(root, TreeNode(2))
+insert(root, TreeNode(13))
+insert(root, TreeNode(11))
+insert(root, TreeNode(10))
+insert(root, TreeNode(12))
+insert(root, TreeNode(15))
+insert(root, TreeNode(14))
+insert(root, TreeNode(16))
+print('1st smallest:  ', kth_smallest(root, 1))
+print('2nd smallest:  ', kth_smallest(root, 2))
+print('3rd smallest:  ', kth_smallest(root, 3))
+print('4th smallest:  ', kth_smallest(root, 4))
+print('5th smallest:  ', kth_smallest(root, 5))
+print('6th smallest:  ', kth_smallest(root, 6))
+print('7th smallest:  ', kth_smallest(root, 7))
+print('8th smallest:  ', kth_smallest(root, 8))
+print('9th smallest:  ', kth_smallest(root, 9))
+print('10th smallest: ', kth_smallest(root, 10))
+print('11th smallest: ', kth_smallest(root, 11))
+print('12th smallest: ', kth_smallest(root, 12))
+print('13th smallest: ', kth_smallest(root, 13))
+print('14th smallest: ', kth_smallest(root, 14))
+print('15th smallest: ', kth_smallest(root, 15))
+print('16th smallest: ', kth_smallest(root, 16))
+print('0th smallest:  ', kth_smallest(root, 0))
