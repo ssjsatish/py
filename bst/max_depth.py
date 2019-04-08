@@ -4,4 +4,4 @@ class TreeNode:
         self.left = None
         self.right = None
 def max_depth(root):
-    
+    return 0
