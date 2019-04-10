@@ -61,7 +61,6 @@ def printLevelOrder(root):
         if node.right is not None:
             queue.append(node.right)
 
-<<<<<<< HEAD
 def isBST_inorder(root):
     a, cur, res = [], root,[]
     while a or cur:
@@ -74,18 +73,6 @@ def isBST_inorder(root):
             cur = cur.right
     return res
 
-=======
-def isBST_iterative(root):
-    s, cur = [], root
-    while s or cur:
-        if cur:
-            s.append(cur)
-            cur =cur.left
-        else:
-            cur = s.pop()
-            cur = cur.right
-    return s 
->>>>>>> 67933fe1022798004d1df100740bda5fba9f3099
 
 def is_sorted(a):
     flag = 0
@@ -108,7 +95,6 @@ root = insert(root, TreeNode(12))
 root = insert(root, TreeNode(15))
 root = insert(root, TreeNode(14))
 root = insert(root, TreeNode(16))
-<<<<<<< HEAD
 
 t_root = TreeNode(9)
 t_root.left = TreeNode(23)
@@ -118,11 +104,6 @@ t_root.right = TreeNode(2)
 a  = isBST_inorder(root)
 b = isBST_inorder(t_root)
 print('isBST_inorder ', a)
-=======
-print('Inorder traversal: ', end='')
-a  = isBST_iterative(root)
-print()
->>>>>>> 67933fe1022798004d1df100740bda5fba9f3099
 print('Level order traversal: ', end=' ')
 printLevelOrder(root)
 print()
