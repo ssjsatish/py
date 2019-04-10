@@ -32,6 +32,8 @@ def kth_smallest(root, k):
             cur = cur.right
     return float("-inf")
 
+
+
 root = TreeNode(9)
 insert(root, TreeNode(5))
 insert(root, TreeNode(7))
