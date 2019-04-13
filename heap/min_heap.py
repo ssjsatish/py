@@ -15,5 +15,5 @@ class MinHeap:
         heappush(self.heap, K)
     
     def decreaseKey(self, i, newVal):
-        self,heap[i] = newVal
+        self.heap[i] = newVal
         
