@@ -12,4 +12,5 @@ for _ in range(int(input())):
         for j in range(9):
             a[i][j] = l[k]
             k +=1
+    ans = solve
     
